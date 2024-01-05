@@ -12,12 +12,12 @@ func _process(_delta):
 		launch_webpage()
 
 func _on_start_pressed():
-	$MarginContainer/VBoxContainer/HBoxContainer/Start/StartSound.play()
-	get_tree().change_scene_to_file("res://scenes/survivors_game.tscn")
+	$HBoxContainer/Start/StartSound.play()
+	get_tree().change_scene_to_file("res://scenes/main_game.tscn")
 
 
 func _on_exit_pressed():
-	$MarginContainer/VBoxContainer/HBoxContainer/Exit/ExitSound.play()
+	$HBoxContainer/Exit/ExitSound.play()
 	$Fade/AnimationPlayer.play("Fade Out")
 
 func _on_animation_player_animation_finished(anim_name):
@@ -34,3 +34,10 @@ func _on_footer_gui_input(event):
 func launch_webpage():
 	OS.shell_open("https://miguelcabezon.itch.io")
 	counter = 0
+
+
+func _on_timer_timeout():
+	if $BG.flip_h:
+		$BG.flip_h = false
+	else:
+		$BG.flip_h = true

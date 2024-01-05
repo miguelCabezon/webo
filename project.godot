@@ -74,12 +74,18 @@ Settings/Show_Tooltips=true
 
 [application]
 
-config/name="Meme Survivors"
+config/name="Webo"
+config/name_localized={
+"en_US": "",
+"es_ES": ""
+}
+config/version="0.1"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/image="res://assets/images/anothercolor_logo.png"
-config/icon="res://assets/images/icon_2.png"
+config/icon="res://assets/2D assets/enemies/slimeBlock.png"
+boot_splash/minimum_display_time=1000
 
 [display]
 

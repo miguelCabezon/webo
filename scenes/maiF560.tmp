@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://ch1dyldt84pv7"]
+[gd_scene load_steps=20 format=3 uid="uid://ch1dyldt84pv7"]
 
 [ext_resource type="Script" path="res://!scripts/main_menu.gd" id="1_shf65"]
-[ext_resource type="Texture2D" uid="uid://dl2eb5nurlhmp" path="res://assets/2D assets/bg/blue_land.png" id="2_w0fi0"]
+[ext_resource type="Texture2D" uid="uid://i4cjdwy1kcoj" path="res://assets/images/icon.png" id="2_kope8"]
 [ext_resource type="FontFile" uid="uid://k0805txpyu7o" path="res://settings/fonts/Kenney Mini Square.ttf" id="3_51yym"]
 [ext_resource type="Texture2D" uid="uid://dmpmsbchpo3k6" path="res://assets/images/another_logo_only.png" id="3_cslib"]
 [ext_resource type="Texture2D" uid="uid://cou7h4mh6m3yh" path="res://assets/2D assets/ui/buttonSquare_brown.png" id="3_r2ibq"]
@@ -29,35 +29,7 @@ expand_margin_top = 5.0
 expand_margin_right = 20.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cq6mk"]
-content_margin_left = 5.0
-content_margin_right = 4.0
-texture = ExtResource("3_r2ibq")
-expand_margin_left = 20.0
-expand_margin_top = 5.0
-expand_margin_right = 20.0
-expand_margin_bottom = 10.0
-modulate_color = Color(0.952941, 0.972549, 0.996078, 1)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6lai"]
-content_margin_left = 5.0
-content_margin_right = 4.0
-texture = ExtResource("4_praqj")
-expand_margin_left = 20.0
-expand_margin_top = 5.0
-expand_margin_right = 20.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v8cl"]
-content_margin_left = 5.0
-content_margin_right = 4.0
-texture = ExtResource("3_r2ibq")
-expand_margin_left = 20.0
-expand_margin_top = 5.0
-expand_margin_right = 20.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqxx6"]
 content_margin_left = 5.0
 content_margin_right = 4.0
 texture = ExtResource("4_praqj")
@@ -69,10 +41,9 @@ expand_margin_bottom = 10.0
 [sub_resource type="LabelSettings" id="LabelSettings_564c3"]
 font = ExtResource("9_ugsiq")
 font_size = 20
-font_color = Color(0, 0, 0, 1)
 outline_size = 1
 shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.721569)
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_e5rky"]
 resource_name = "Fade In"
@@ -131,8 +102,8 @@ resource_local_to_scene = true
 shader = ExtResource("5_tw1a7")
 shader_parameter/overlay = true
 shader_parameter/scanlines_opacity = 0.188
-shader_parameter/scanlines_width = 0.071
-shader_parameter/grille_opacity = 0.114
+shader_parameter/scanlines_width = 0.024
+shader_parameter/grille_opacity = 0.18
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
 shader_parameter/roll = true
@@ -140,16 +111,16 @@ shader_parameter/roll_speed = 4.0
 shader_parameter/roll_size = 4.715
 shader_parameter/roll_variation = 1.128
 shader_parameter/distort_intensity = 0.024
-shader_parameter/noise_opacity = 0.13
+shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.054
 shader_parameter/aberration = 0.03
-shader_parameter/brightness = 1.0
+shader_parameter/brightness = 1.4
 shader_parameter/discolor = true
 shader_parameter/warp_amount = 0.628
 shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.3
-shader_parameter/vignette_opacity = 0.088
+shader_parameter/vignette_intensity = 0.44
+shader_parameter/vignette_opacity = 0.32
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -165,26 +136,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -128.0
-offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_w0fi0")
+texture = ExtResource("2_kope8")
 
 [node name="Game Title" type="Label" parent="."]
 custom_minimum_size = Vector2(200, 100)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -384.0
-offset_top = -284.0
-offset_right = 384.0
-offset_bottom = -96.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+offset_left = 128.0
+offset_top = 90.0
+offset_right = 896.0
+offset_bottom = 278.0
 size_flags_vertical = 0
 tooltip_text = "A game about a little egg!"
 mouse_filter = 0
@@ -210,10 +172,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.0
-offset_top = 66.0
-offset_right = 108.0
-offset_bottom = 126.0
+offset_left = -94.0
+offset_top = -25.0
+offset_right = 106.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -228,9 +190,7 @@ mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("9_ugsiq")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_r5r8k")
-theme_override_styles/hover = SubResource("StyleBoxTexture_cq6mk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_o6lai")
-theme_override_styles/focus = SubResource("StyleBoxTexture_cq6mk")
 text = "Start"
 
 [node name="StartSound" type="AudioStreamPlayer" parent="HBoxContainer/Start"]
@@ -240,14 +200,7 @@ volume_db = -2.245
 
 [node name="Exit" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("9_ugsiq")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_6v8cl")
-theme_override_styles/hover = SubResource("StyleBoxTexture_cq6mk")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_rqxx6")
-theme_override_styles/focus = SubResource("StyleBoxTexture_cq6mk")
-text = "Exit"
+text = "Salir"
 language = "es_ES"
 
 [node name="ExitSound" type="AudioStreamPlayer" parent="HBoxContainer/Exit"]
@@ -259,9 +212,9 @@ volume_db = -11.614
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 379.0
-offset_top = 700.0
+offset_top = 743.0
 offset_right = 644.0
-offset_bottom = 725.0
+offset_bottom = 768.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 tooltip_text = "Hope you like the game! Click ?? times to visit my page!"
@@ -289,12 +242,8 @@ libraries = {
 "": SubResource("AnimationLibrary_hvikv")
 }
 
-[node name="BgMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_xe1fk")
-volume_db = -11.614
-autoplay = true
-
 [node name="Interferences" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_k5fbv")
 layout_mode = 1
 anchors_preset = 15
@@ -302,15 +251,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xe1fk")
+volume_db = -11.614
+autoplay = true
 
 [connection signal="pressed" from="HBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="gui_input" from="Footer" to="." method="_on_footer_gui_input"]
 [connection signal="animation_finished" from="Fade/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

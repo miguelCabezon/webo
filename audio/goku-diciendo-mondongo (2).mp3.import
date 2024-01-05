@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://whkwgss2b46b"
+path="res://.godot/imported/goku-diciendo-mondongo (2).mp3-c5e729f73e43793b916eff4e797cebde.mp3str"
+
+[deps]
+
+source_file="res://audio/goku-diciendo-mondongo (2).mp3"
+dest_files=["res://.godot/imported/goku-diciendo-mondongo (2).mp3-c5e729f73e43793b916eff4e797cebde.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

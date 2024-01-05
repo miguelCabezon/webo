@@ -1,0 +1,216 @@
+[gd_scene load_steps=16 format=3 uid="uid://ch1dyldt84pv7"]
+
+[ext_resource type="Script" path="res://!scripts/main_menu.gd" id="1_shf65"]
+[ext_resource type="Texture2D" uid="uid://dfftqqccajb05" path="res://assets/images/icon_2.png" id="2_eni4i"]
+[ext_resource type="Texture2D" uid="uid://dmpmsbchpo3k6" path="res://assets/images/another_logo_only.png" id="3_cslib"]
+[ext_resource type="AudioStream" uid="uid://tdd12ac226v4" path="res://audio/DavidKBD - Cosmic Pack 05 - Stellar Confrontation-full.ogg" id="4_qn4jf"]
+[ext_resource type="AudioStream" uid="uid://bvkesms4ckmbr" path="res://audio/click.mp3" id="4_whxwf"]
+[ext_resource type="AudioStream" uid="uid://whkwgss2b46b" path="res://audio/goku-diciendo-mondongo (2).mp3" id="5_c3abr"]
+[ext_resource type="Shader" path="res://settings/crt.gdshader" id="5_tw1a7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4m6w3"]
+blend_mode = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_jwx42"]
+font_size = 42
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_564c3"]
+font_size = 20
+
+[sub_resource type="Animation" id="Animation_e5rky"]
+resource_name = "Fade In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2cw14"]
+resource_name = "Fade Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.517632, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jjfeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvikv"]
+_data = {
+"Fade In": SubResource("Animation_e5rky"),
+"Fade Out": SubResource("Animation_2cw14"),
+"RESET": SubResource("Animation_jjfeu")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5fbv"]
+resource_local_to_scene = true
+shader = ExtResource("5_tw1a7")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.188
+shader_parameter/scanlines_width = 0.024
+shader_parameter/grille_opacity = 0.18
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 4.715
+shader_parameter/roll_variation = 1.128
+shader_parameter/distort_intensity = 0.024
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.054
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.628
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.44
+shader_parameter/vignette_opacity = 0.32
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_shf65")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eni4i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_4m6w3")
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+texture = ExtResource("3_cslib")
+expand_mode = 5
+
+[node name="Shooter3D" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "SURVIVORS"
+label_settings = SubResource("LabelSettings_jwx42")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Iniciar"
+language = "es_ES"
+
+[node name="StartSound" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/HBoxContainer/Start"]
+unique_name_in_owner = true
+stream = ExtResource("4_whxwf")
+volume_db = -2.245
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Salir"
+language = "es_ES"
+
+[node name="ExitSound" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/HBoxContainer/Exit"]
+unique_name_in_owner = true
+stream = ExtResource("5_c3abr")
+volume_db = -11.614
+
+[node name="Footer" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Desarrollado por Another, 2023"
+label_settings = SubResource("LabelSettings_564c3")
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade"]
+libraries = {
+"": SubResource("AnimationLibrary_hvikv")
+}
+
+[node name="Interferences" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_k5fbv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qn4jf")
+volume_db = -11.614
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="animation_finished" from="Fade/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

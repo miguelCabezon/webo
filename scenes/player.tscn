@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuo36o7kh2lkw"]
+
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_rr1b7"]
+[ext_resource type="Script" path="res://!scripts/player.gd" id="1_ytwsm"]
+[ext_resource type="PackedScene" uid="uid://cvqxcunrjhtxa" path="res://scenes/gun.tscn" id="3_jhne7"]
+[ext_resource type="AudioStream" uid="uid://b2p4q7psufvwu" path="res://audio/hitmarker-sound-effect.mp3" id="4_48lxt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75cwv"]
+radius = 34.0147
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0yx62"]
+radius = 42.0476
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dn1ik"]
+bg_color = Color(0.172549, 0.172549, 0.172549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5tp3"]
+bg_color = Color(0.792157, 0, 0.117647, 1)
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0.596078)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ytwsm")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_rr1b7")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_75cwv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.33, 0.33)
+
+[node name="Gun" parent="." instance=ExtResource("3_jhne7")]
+position = Vector2(0, -24)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_0yx62")
+debug_color = Color(0.882353, 0, 0.101961, 0.419608)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -70.0
+offset_top = -130.0
+offset_right = 70.0
+offset_bottom = -115.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dn1ik")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y5tp3")
+value = 60.0
+rounded = true
+show_percentage = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_48lxt")

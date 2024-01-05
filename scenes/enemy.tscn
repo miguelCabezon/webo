@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://!scripts/enemy.gd" id="1_40wuo"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="2_oye6u"]
-[ext_resource type="AudioStream" uid="uid://dpj3v5bnycof1" path="res://audio/roblox-death-sound_ytkBL7X.mp3" id="3_dqv5x"]
+[ext_resource type="AudioStream" path="res://audio/roblox-death-sound_ytkBL7X.mp3" id="3_dqv5x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vw3l6"]
 radius = 50.0

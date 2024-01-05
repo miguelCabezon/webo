@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_rr1b7"]
 [ext_resource type="Script" path="res://!scripts/player.gd" id="1_ytwsm"]
 [ext_resource type="PackedScene" uid="uid://cvqxcunrjhtxa" path="res://scenes/gun.tscn" id="3_jhne7"]
-[ext_resource type="AudioStream" uid="uid://b2p4q7psufvwu" path="res://audio/hitmarker-sound-effect.mp3" id="4_48lxt"]
+[ext_resource type="AudioStream" path="res://audio/hitmarker-sound-effect.mp3" id="4_48lxt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75cwv"]
 radius = 34.0147

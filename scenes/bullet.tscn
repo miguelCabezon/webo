@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://!scripts/bullet.gd" id="1_cnttp"]
 [ext_resource type="Texture2D" uid="uid://dftkbqwsfd68r" path="res://pistol/projectile.png" id="2_xk54s"]
-[ext_resource type="AudioStream" uid="uid://sqmt23b35ka1" path="res://audio/bonk_BEtiM8g.mp3" id="3_y81nj"]
+[ext_resource type="AudioStream" path="res://audio/bonk_BEtiM8g.mp3" id="3_y81nj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t3eln"]
 radius = 16.0

@@ -1,23 +1,32 @@
-[gd_scene load_steps=16 format=3 uid="uid://ch1dyldt84pv7"]
+[gd_scene load_steps=19 format=3 uid="uid://ch1dyldt84pv7"]
 
 [ext_resource type="Script" path="res://!scripts/main_menu.gd" id="1_shf65"]
-[ext_resource type="Texture2D" uid="uid://dfftqqccajb05" path="res://assets/images/icon_2.png" id="2_eni4i"]
+[ext_resource type="Texture2D" uid="uid://i4cjdwy1kcoj" path="res://assets/images/icon.png" id="2_kope8"]
+[ext_resource type="FontFile" uid="uid://k0805txpyu7o" path="res://settings/fonts/Kenney Mini Square.ttf" id="3_51yym"]
 [ext_resource type="Texture2D" uid="uid://dmpmsbchpo3k6" path="res://assets/images/another_logo_only.png" id="3_cslib"]
-[ext_resource type="AudioStream" uid="uid://tdd12ac226v4" path="res://audio/DavidKBD - Cosmic Pack 05 - Stellar Confrontation-full.ogg" id="4_qn4jf"]
-[ext_resource type="AudioStream" uid="uid://bvkesms4ckmbr" path="res://audio/click.mp3" id="4_whxwf"]
-[ext_resource type="AudioStream" uid="uid://whkwgss2b46b" path="res://audio/goku-diciendo-mondongo (2).mp3" id="5_c3abr"]
+[ext_resource type="AudioStream" uid="uid://b2h82dq3ncd38" path="res://audio/click3.ogg" id="4_aggjy"]
+[ext_resource type="Texture2D" uid="uid://bu10wjbjbidmr" path="res://assets/2D assets/ui/panel_brown.png" id="4_jr2y4"]
+[ext_resource type="Texture2D" uid="uid://c4h2s4wnrfpdg" path="res://assets/2D assets/ui/panel_beigeLight.png" id="5_5csax"]
 [ext_resource type="Shader" path="res://settings/crt.gdshader" id="5_tw1a7"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4m6w3"]
-blend_mode = 3
+[ext_resource type="Texture2D" uid="uid://cbw0x44kmgcg7" path="res://assets/2D assets/ui/panel_beige.png" id="6_75v3e"]
+[ext_resource type="AudioStream" uid="uid://bhh8nryqplh4q" path="res://audio/Retro Mystic.ogg" id="6_xe1fk"]
+[ext_resource type="FontFile" uid="uid://cwmd418gi6yux" path="res://settings/fonts/Kenney Mini.ttf" id="9_ugsiq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jwx42"]
-font_size = 42
-outline_size = 5
+font = ExtResource("3_51yym")
+font_size = 150
+font_color = Color(0.623529, 0.866667, 0.317647, 1)
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_564c3"]
+font = ExtResource("9_ugsiq")
 font_size = 20
+outline_size = 1
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_e5rky"]
 resource_name = "Fade In"
@@ -112,7 +121,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_eni4i")
+texture = ExtResource("2_kope8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -122,61 +131,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Game Title" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-material = SubResource("CanvasItemMaterial_4m6w3")
-custom_minimum_size = Vector2(125, 0)
-layout_mode = 2
-texture = ExtResource("3_cslib")
-expand_mode = 5
-
-[node name="Shooter3D" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "SURVIVORS"
+size_flags_vertical = 0
+text = "WEBO"
 label_settings = SubResource("LabelSettings_jwx42")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Game Title Image" type="TextureRect" parent="MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+texture = ExtResource("3_cslib")
+expand_mode = 5
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Iniciar"
-language = "es_ES"
+texture_normal = ExtResource("5_5csax")
+texture_pressed = ExtResource("4_jr2y4")
+texture_hover = ExtResource("6_75v3e")
+texture_focused = ExtResource("6_75v3e")
+ignore_texture_size = true
 
-[node name="StartSound" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/HBoxContainer/Start"]
+[node name="StartSound" type="AudioStreamPlayer" parent="MarginContainer/HBoxContainer/Start"]
 unique_name_in_owner = true
-stream = ExtResource("4_whxwf")
+stream = ExtResource("4_aggjy")
 volume_db = -2.245
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Salir"
 language = "es_ES"
 
-[node name="ExitSound" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/HBoxContainer/Exit"]
+[node name="ExitSound" type="AudioStreamPlayer" parent="MarginContainer/HBoxContainer/Exit"]
 unique_name_in_owner = true
-stream = ExtResource("5_c3abr")
+stream = ExtResource("4_aggjy")
 volume_db = -11.614
 
-[node name="Footer" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Footer" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Desarrollado por Another, 2023"
+size_flags_horizontal = 4
+size_flags_vertical = 8
+tooltip_text = "Hope you like the game! Click ?? times to visit my page!"
+mouse_filter = 0
+text = "Created by Another, 2024"
 label_settings = SubResource("LabelSettings_564c3")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Fade" type="ColorRect" parent="."]
 visible = false
@@ -207,10 +218,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_qn4jf")
+stream = ExtResource("6_xe1fk")
 volume_db = -11.614
 autoplay = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="gui_input" from="MarginContainer/Footer" to="." method="_on_footer_gui_input"]
 [connection signal="animation_finished" from="Fade/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

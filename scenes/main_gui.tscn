@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://von4sfn81guf"]
+
+[ext_resource type="Shader" path="res://settings/crt.gdshader" id="1_1dn8d"]
+[ext_resource type="Script" path="res://scenes/main_gui.gd" id="1_r80vx"]
+[ext_resource type="Texture2D" uid="uid://bnxciwdqmsiqj" path="res://assets/2D assets/ui/hunger progress bar/tile_0106-export.png" id="2_djug7"]
+[ext_resource type="Texture2D" uid="uid://c77th2watlw8i" path="res://assets/2D assets/ui/clock/clock.png" id="4_ynu8w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmnfa"]
+resource_local_to_scene = true
+shader = ExtResource("1_1dn8d")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.188
+shader_parameter/scanlines_width = 0.071
+shader_parameter/grille_opacity = 0.114
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 4.715
+shader_parameter/roll_variation = 1.128
+shader_parameter/distort_intensity = 0.024
+shader_parameter/noise_opacity = 0.13
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.054
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.628
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_opacity = 0.088
+
+[node name="MainGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r80vx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -148.0
+offset_right = 450.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="HungerProgressBar" type="TextureProgressBar" parent="StatsContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("2_djug7")
+
+[node name="ThirstProgressBar" type="TextureProgressBar" parent="StatsContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("2_djug7")
+
+[node name="LifeProgressBar" type="TextureProgressBar" parent="StatsContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("2_djug7")
+
+[node name="ClockProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -189.0
+offset_top = 35.0
+offset_right = -119.0
+offset_bottom = 105.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+fill_mode = 5
+texture_under = ExtResource("4_ynu8w")
+texture_progress = ExtResource("4_ynu8w")
+tint_under = Color(0.870588, 0.0588235, 0.0588235, 1)
+
+[node name="Interferences" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pmnfa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://u6l5dwquy0ux"]
+[gd_scene load_steps=5 format=3 uid="uid://bvnjwc5ui1cei"]
 
 [ext_resource type="Script" path="res://!scripts/main_game.gd" id="1_02vt1"]
-[ext_resource type="PackedScene" uid="uid://botoxxyh8norw" path="res://scenes/player/player_fase0.tscn" id="2_16qt1"]
-[ext_resource type="PackedScene" uid="uid://von4sfn81guf" path="res://scenes/main_gui.tscn" id="3_8xt85"]
+[ext_resource type="PackedScene" uid="uid://botoxxyh8norw" path="res://scenes/player/player_0.tscn" id="2_16qt1"]
+[ext_resource type="PackedScene" path="res://scenes/main_gui.tscn" id="3_8xt85"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lsou0"]
 font_size = 50
@@ -44,11 +44,13 @@ text = "GAME OVER"
 label_settings = SubResource("LabelSettings_lsou0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 offset_right = 2255.0
 offset_bottom = 1379.0
 
 [node name="Player" parent="." instance=ExtResource("2_16qt1")]
-position = Vector2(512, 384)
+unique_name_in_owner = true
+position = Vector2(512, 500)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0

@@ -35,4 +35,7 @@ func _physics_process(_delta):
 
 func grow():
 	phase += 1
+	
+func _on_time_passes(time_passed):
+	pass
 

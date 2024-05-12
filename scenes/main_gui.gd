@@ -23,3 +23,19 @@ func _on_timer_timeout():
 	if (clock_value <= 0):
 		clock_value = CLOCK_MAX_VALUE
 	$ClockProgressBar.value = clock_value
+
+
+func _on_give_food_button_pressed():
+	print("food given!")
+
+
+func _on_give_beverage_button_pressed():
+	print("drink!")
+
+
+func _on_heal_button_pressed():
+	print("a nice heal!")
+
+
+func _on_play_button_pressed():
+	print("let's play!")

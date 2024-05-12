@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://von4sfn81guf"]
+[gd_scene load_steps=7 format=3 uid="uid://von4sfn81guf"]
 
 [ext_resource type="Shader" path="res://settings/crt.gdshader" id="1_1dn8d"]
 [ext_resource type="Script" path="res://scenes/main_gui.gd" id="1_r80vx"]
 [ext_resource type="Texture2D" uid="uid://bnxciwdqmsiqj" path="res://assets/2D assets/ui/hunger progress bar/tile_0106-export.png" id="2_djug7"]
 [ext_resource type="Texture2D" uid="uid://c77th2watlw8i" path="res://assets/2D assets/ui/clock/clock.png" id="4_ynu8w"]
+[ext_resource type="Texture2D" uid="uid://b657nrbyk8lvr" path="res://assets/2D assets/ui/arrowBeige_right.png" id="5_3xqg8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pmnfa"]
 resource_local_to_scene = true
@@ -72,6 +73,13 @@ fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("2_djug7")
 
+[node name="Label" type="Label" parent="StatsContainer/HungerProgressBar"]
+layout_mode = 0
+offset_top = 62.0
+offset_right = 68.0
+offset_bottom = 85.0
+text = "HUNGER"
+
 [node name="ThirstProgressBar" type="TextureProgressBar" parent="StatsContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -81,6 +89,12 @@ fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("2_djug7")
 
+[node name="Label" type="Label" parent="StatsContainer/ThirstProgressBar"]
+offset_left = 6.0
+offset_top = -23.0
+offset_right = 56.0
+text = "THIRST"
+
 [node name="LifeProgressBar" type="TextureProgressBar" parent="StatsContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -89,6 +103,14 @@ value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
 texture_progress = ExtResource("2_djug7")
+
+[node name="Label" type="Label" parent="StatsContainer/LifeProgressBar"]
+offset_left = 7.0
+offset_top = 61.0
+offset_right = 62.0
+offset_bottom = 84.0
+text = "LIFE"
+horizontal_alignment = 1
 
 [node name="ClockProgressBar" type="TextureProgressBar" parent="."]
 custom_minimum_size = Vector2(64, 64)
@@ -124,4 +146,62 @@ color = Color(1, 1, 1, 0)
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_right = 181.0
+grow_vertical = 2
+alignment = 1
+
+[node name="GiveFoodButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_3xqg8")
+
+[node name="Label" type="Label" parent="VBoxContainer/GiveFoodButton"]
+offset_left = 30.0
+offset_right = 70.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "FOOD"
+
+[node name="GiveBeverageButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_3xqg8")
+
+[node name="Label" type="Label" parent="VBoxContainer/GiveBeverageButton"]
+offset_left = 30.0
+offset_right = 70.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "DRINK"
+
+[node name="HealButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_3xqg8")
+
+[node name="Label" type="Label" parent="VBoxContainer/HealButton"]
+offset_left = 30.0
+offset_right = 70.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "HEAL"
+
+[node name="PlayButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_3xqg8")
+
+[node name="Label" type="Label" parent="VBoxContainer/PlayButton"]
+layout_mode = 0
+offset_left = 30.0
+offset_right = 70.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PLAY"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="VBoxContainer/GiveFoodButton" to="." method="_on_give_food_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GiveBeverageButton" to="." method="_on_give_beverage_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HealButton" to="." method="_on_heal_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://botoxxyh8norw"]
+[gd_scene load_steps=3 format=3 uid="uid://ct3io4p5lpmwm"]
 
 [ext_resource type="Script" path="res://!scripts/player.gd" id="1_ac6nl"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_ln217"]
